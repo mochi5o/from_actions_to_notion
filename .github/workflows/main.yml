@@ -1,6 +1,9 @@
 name: JS Actions
 
-on: [push]
+# on: [push]
+on:
+  issues:
+    types: [labeled]
 
 jobs:
   action:
