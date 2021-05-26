@@ -1,46 +1,15 @@
-name: post_to_notion
 on: [push]
-  # issues:
-  #   types:
-  #     ['labeled']
 
 jobs:
-  labeled-actions:
+  hello_world_job:
     runs-on: ubuntu-latest
-    if: |
-      (github.event.label.name == '対応中')
-    name: Post issue data to notion
+    name: A job to say hello
     steps:
-      # - name: Checkout
-      #   uses: actions/checkout@v2
-      # - name: POST data
-      #   description: POST issue information to notion
-      #   inputs:
-      #     github_token:
-      #       description: ${{ secrets.ACCESS_TOKEN }}
-      #       required: true
-      #     issue-url:
-      #       description: ${{ github.event.issue.url }}
-      #       required: true
-      #     title:
-      #       description: ${{ github.event.issue.title }}
-      #       required: true
-      #     notion_token:
-      #       desctription: ${{ secrets.NOTION_TOKEN }}
-      #       required: true
-      #   outputs:
-      #     time:
-      #       description: 'The time we greeted you'
-      - name: 'Hello World'
-        description: 'Greet someone and record the time'
-        inputs:
-          who-to-greet:  # id of input
-            description: 'Who to greet'
-            required: true
-            default: 'World'
-        outputs:
-          time: # id of output
-            description: 'The time we greeted you'
-        runs:
-          using: 'node12'
-          main: 'dist/index.js'
+      - name: Hello world action step
+        id: hello
+        uses: actions/hello-world-javascript-action@v1.1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      # `hello`ステップからの出力を使用する
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
