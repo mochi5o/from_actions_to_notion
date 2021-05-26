@@ -1,8 +1,5 @@
 name: post_to_notion
-on:
-  push:
-  branches:
-    - dev
+on: [push]
 
 jobs:
   labeled-actions:
