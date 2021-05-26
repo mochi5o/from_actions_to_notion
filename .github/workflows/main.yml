@@ -1,24 +1,18 @@
-on : [push]
+name: JS Actions
+
+on: [push]
 
 jobs:
-  hello_world_job:
-    name: 'Hello World'
+  action:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Hello world action step
-        uses: ./
-        description: 'Greet someone and record the time'
-        inputs:
-          who-to-greet:  # id of input
-            description: 'Who to greet'
-            required: true
-            default: 'World'
-        outputs:
-          time: # id of output
-            description: 'The time we greeted you'
 
-        runs:
-          using: 'node12'
-          main: 'index.js'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Hello world action step
+        uses: ./ # ルートディレクトリのアクションを実行する
+        id: hello
+
+      - name: Get the output time
+        run: echo "時間は {{ steps.hello.outputs.time }}"
