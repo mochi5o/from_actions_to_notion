@@ -1,0 +1,46 @@
+name: post_to_notion
+on:
+  issues:
+    types:
+      ['labeled']
+
+jobs:
+  labeled-actions:
+    runs-on: ubuntu-latest
+    if: |
+      (github.event.label.name == '対応中')
+    name: Post issue data to notion
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      # - name: POST data
+      #   description: POST issue information to notion
+      #   inputs:
+      #     github_token:
+      #       description: ${{ secrets.ACCESS_TOKEN }}
+      #       required: true
+      #     issue-url:
+      #       description: ${{ github.event.issue.url }}
+      #       required: true
+      #     title:
+      #       description: ${{ github.event.issue.title }}
+      #       required: true
+      #     notion_token:
+      #       desctription: ${{ secrets.NOTION_TOKEN }}
+      #       required: true
+      #   outputs:
+      #     time:
+      #       description: 'The time we greeted you'
+      - name: 'Hello World'
+        description: 'Greet someone and record the time'
+        inputs:
+          who-to-greet:  # id of input
+            description: 'Who to greet'
+            required: true
+            default: 'World'
+        outputs:
+          time: # id of output
+            description: 'The time we greeted you'
+        runs:
+          using: 'node12'
+          main: 'dist/index.js'
