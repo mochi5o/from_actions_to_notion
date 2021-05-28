@@ -18,9 +18,9 @@ const { Client } = require("@notionhq/client")
 
 // async function run() {
 //   try {
+    const token = core.getInput("repo-token");
     const issueTitle = core.getInput("issue-title");
     const url = core.getInput("url");
-    const token = core.getInput("repo-token");
     const notionToken = core.getInput("notion-token");
 
     const octokit = new github.getOctokit(token);
