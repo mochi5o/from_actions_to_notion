@@ -1,10 +1,21 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'issue post'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  issue-title:
+    description: 'issue title'
     required: true
-    default: 'World'
+    default: 'this is title'
+  url:
+    description: 'issues url'
+    required: true
+    default: ${{ github.event.repo.url }}
+  repo-token:
+    description: 'github token'
+    required: true
+    default: ${{ secrets.ACCESS_TOKEN }}
+  notion-token:
+    description: 'notion token'
+    required: true
+    default: ${{ secrets.NOTION_TOKEN }}
 outputs:
   time: # id of output
     description: 'The time we greeted you'
