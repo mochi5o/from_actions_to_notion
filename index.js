@@ -4,11 +4,11 @@ const { Client } = require("@notionhq/client")
 
 async function run() {
   try {
+    const notionToken = core.getInput('integrations-token');
     const notion = new Client({ auth: notionToken });
-
     const issueTitle = core.getInput('issue-title');
     const url = core.getInput('url');
-    const notionToken = core.getInput('integrations-token');
+
     const parent = {
           database_id: 'dfc2cdc260ae476c8f2f5d4065f9a94a',
         };
@@ -28,6 +28,7 @@ async function run() {
         }
       }
     }
+
     const newPage = await notion.databases.query({
       parent: parent,
       propaties: properties
