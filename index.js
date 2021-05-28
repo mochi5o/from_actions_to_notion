@@ -18,22 +18,15 @@ const { Client } = require("@notionhq/client")
 
 // async function run() {
 //   try {
-    const token = core.getInput("repo-token");
+    // const token = core.getInput("repo-token");
     const issueTitle = core.getInput("issue-title");
     const url = core.getInput("url");
-    const notionToken = core.getInput("notion-token");
+    const notionToken = core.getInput("integrations-token");
 
-    const octokit = new github.getOctokit(token);
+    // const octokit = new github.getOctokit(token);
     const notion = new Client({ auth: notionToken });
 
-    // const issueCreate = await octokit.issues.create({
-    //   repo: github.context.repo.repo,
-    //   owner: github.context.repo.owner,
-    //   title: issueTitle,
-    //   body: url
-    // });
   async function createPageInDatabase(databaseId) {
-    // The parent object to add to. Here just the ID of the database but this can also be the id of a page.
     const parent = {
       database_id: 'dfc2cdc260ae476c8f2f5d4065f9a94a',
     };

@@ -4,6 +4,15 @@ inputs:
     description: 'issues url'
     required: true
     default: ${{ github.event.repo.url }}
+  repo-token:
+    description: 'repo-token'
+    required: true
+  issue-title:
+    description: 'event issue title'
+    required: true
+  integrations-token:
+    description: 'integrations'
+    required: true
 outputs:
   time: # id of output
     description: 'The time we greeted you'

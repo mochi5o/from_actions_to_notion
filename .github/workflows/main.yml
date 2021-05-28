@@ -18,7 +18,7 @@ jobs:
           # issue-title: ${{ github.event.issue.title }}
           # url: ${{ github.event.issue.url }}
           issue-title: ${{ github.event.repo.url }}
-          notion-token: ${{ secrets.NOTION_TOKEN }}
+          integrations-token: ${{ secrets.NOTION_TOKEN }}
 
       - name: Get the output time
         run: echo "時間は {{ steps.hello.outputs.time }}"
