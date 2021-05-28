@@ -17,15 +17,15 @@ async function run() {
         };
 
     const properties = {
-      Name: {
+      'Name': {
         type: 'title',
         title: [{ text: { content: issueTitle } }]
       },
-      Url: {
+      'Url': {
         type: 'rich_text',
         rich_text: [{ text: { content: url } }]
       },
-      Status: {
+      'Status': {
         select: {
           name: "not started"
         }
