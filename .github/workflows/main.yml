@@ -10,9 +10,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Hello world action step
+      - name: Post to Notion
         uses: ./ # ルートディレクトリのアクションを実行する
-        id: hello
+        id: notion
         with:
           repo-token: ${{ secrets.ACCESS_TOKEN }}
           # issue-title: ${{ github.event.issue.title }}
@@ -21,4 +21,4 @@ jobs:
           integrations-token: ${{ secrets.NOTION_TOKEN }}
 
       - name: Get the output time
-        run: echo "時間は {{ steps.hello.outputs.time }}"
+        run: echo "時間は {{ steps.notion.outputs.time }}"

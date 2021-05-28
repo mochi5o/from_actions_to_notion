@@ -1,7 +1,11 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const { Client, LogLevel } = require("@notionhq/client")
-
+const notionToken = core.getInput('integrations-token');
+const notion = new Client({
+  auth: notionToken,
+  logLevel: LogLevel.DEBUG,
+})
 // async function run() {
 //   try {
 //     const notionToken = core.getInput('integrations-token');

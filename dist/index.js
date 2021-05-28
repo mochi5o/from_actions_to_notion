@@ -1167,7 +1167,11 @@ module.exports = [["0","\u0000",127],["a140","　，、。．‧；：？！︰�
 const core = __webpack_require__(670);
 const github = __webpack_require__(77);
 const { Client, LogLevel } = __webpack_require__(517)
-
+const notionToken = core.getInput('integrations-token');
+const notion = new Client({
+  auth: notionToken,
+  logLevel: LogLevel.DEBUG,
+})
 // async function run() {
 //   try {
 //     const notionToken = core.getInput('integrations-token');
