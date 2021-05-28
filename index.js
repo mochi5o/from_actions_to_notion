@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const { Client } = require("@notionhq/client")
+const { Client, LogLevel } = require("@notionhq/client")
 
 async function run() {
   try {
