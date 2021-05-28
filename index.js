@@ -2,41 +2,16 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const { Client } = require("@notionhq/client")
 
-// try {
-//   // `who-to-greet` input defined in action metadata file
-//   const nameToGreet = core.getInput('who-to-greet');
-//   console.log(`Hello ${nameToGreet}!`);
-//   const time = (new Date()).toTimeString();
-//   core.setOutput("time", time);
-//   // Get the JSON webhook payload for the event that triggered the workflow
-//   const payload = JSON.stringify(github.context.payload, undefined, 2)
-//   console.log(`The event payload: ${payload}`);
-// } catch (error) {
-//   core.setFailed(error.message);
-// }
-
-
-// async function run() {
-//   try {
-    // const token = core.getInput("repo-token");
-    const issueTitle = core.getInput("issue-title");
-    const url = core.getInput("url");
-    const notionToken = core.getInput("integrations-token");
-
-    // const octokit = new github.getOctokit(token);
+async function run() {
+  try {
     const notion = new Client({ auth: notionToken });
 
-  async function createPageInDatabase(databaseId) {
-
-    const issueTitle = core.getInput("issue-title");
-    const url = core.getInput("url");
-    const notionToken = core.getInput("integrations-token");
-
-    // const octokit = new github.getOctokit(token);
-    const notion = new Client({ auth: notionToken });
+    const issueTitle = core.getInput('issue-title');
+    const url = core.getInput('url');
+    const notionToken = core.getInput('integrations-token');
     const parent = {
-      database_id: 'dfc2cdc260ae476c8f2f5d4065f9a94a',
-    };
+          database_id: 'dfc2cdc260ae476c8f2f5d4065f9a94a',
+        };
 
     const properties = {
       Name: {
@@ -53,17 +28,13 @@ const { Client } = require("@notionhq/client")
         }
       }
     }
-
-    const newPage = {
+    const newPage = await notion.databases.query({
       parent: parent,
-      properties: properties,
-    };
-
-    const response = await notion.pages.create(newPage);
-    console.log(response);
+      propaties: properties
+    })
+  } catch (error) {
+    console.error(error)
   }
+}
 
-  (async () => {})(createPageInDatabase('DATABASE_ID'));
-// }
-
-// run()
+run()
