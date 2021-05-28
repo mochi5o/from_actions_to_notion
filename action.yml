@@ -1,10 +1,9 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'issue post'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  url:
+    description: 'issues url'
     required: true
-    default: 'World'
+    default: ${{ github.event.repo.url }}
 outputs:
   time: # id of output
     description: 'The time we greeted you'

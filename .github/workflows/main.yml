@@ -13,6 +13,12 @@ jobs:
       - name: Hello world action step
         uses: ./ # ルートディレクトリのアクションを実行する
         id: hello
+        with:
+          repo-token: ${{ secrets.ACCESS_TOKEN }}
+          # issue-title: ${{ github.event.issue.title }}
+          # url: ${{ github.event.issue.url }}
+          issue-title: ${{ github.event.repo.url }}
+          notion-token: ${{ secrets.NOTION_TOKEN }}
 
       - name: Get the output time
         run: echo "時間は {{ steps.hello.outputs.time }}"
