@@ -5,12 +5,15 @@ const { Client } = require("@notionhq/client")
 async function run() {
   try {
     const notionToken = core.getInput('integrations-token');
-    const notion = new Client({ auth: notionToken });
+    const notion = new Client({
+      auth: notionToken,
+      logLevel: LogLevel.DEBUG,
+    })
     const issueTitle = core.getInput('issue-title');
     const url = core.getInput('url');
 
     const parent = {
-          database_id: 'dfc2cdc260ae476c8f2f5d4065f9a94a',
+          database_id: 'dfc2cdc260ae476c8f2f5d4065f9a94a'
         };
 
     const properties = {
@@ -30,7 +33,7 @@ async function run() {
     }
 
     const newPage = await notion.databases.query({
-      parent: parent,
+      database_id: 'dfc2cdc260ae476c8f2f5d4065f9a94a',
       propaties: properties
     })
   } catch (error) {
