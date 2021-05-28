@@ -1199,7 +1199,9 @@ async function run() {
     }
 
     const newPage = await notion.pages.create({
-      parent: parent,
+      parent: {
+        database_id: 'dfc2cdc260ae476c8f2f5d4065f9a94a',
+      },
       propaties: properties
     })
   } catch (error) {
