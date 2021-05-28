@@ -27,6 +27,13 @@ const { Client } = require("@notionhq/client")
     const notion = new Client({ auth: notionToken });
 
   async function createPageInDatabase(databaseId) {
+
+    const issueTitle = core.getInput("issue-title");
+    const url = core.getInput("url");
+    const notionToken = core.getInput("integrations-token");
+
+    // const octokit = new github.getOctokit(token);
+    const notion = new Client({ auth: notionToken });
     const parent = {
       database_id: 'dfc2cdc260ae476c8f2f5d4065f9a94a',
     };
