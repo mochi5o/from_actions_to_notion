@@ -13,8 +13,9 @@ async function run() {
   try {
 
     const parent = {
-          database_id: 'dfc2cdc260ae476c8f2f5d4065f9a94a'
-        };
+      "type": "database_id",
+      "database_id": "2f26ee68-df30-4251-aad4-8ddc420cba3d"
+    }
 
     const properties = {
       "Name": {
@@ -46,9 +47,7 @@ async function run() {
     }
 
     const newPage = await notion.pages.create({
-      parent: {
-        database_id: 'dfc2cdc260ae476c8f2f5d4065f9a94a',
-      },
+      parent: parent,
       propaties: properties
     })
   } catch (error) {
