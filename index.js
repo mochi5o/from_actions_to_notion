@@ -12,24 +12,19 @@ const url = core.getInput('url');
 async function run() {
   try {
 
-    const parent = {
-      "type": "database_id",
-      "database_id": "2f26ee68-df30-4251-aad4-8ddc420cba3d"
-    }
+    // const parent = {
+    //   "type": "database_id",
+    //   "database_id": "2f26ee68-df30-4251-aad4-8ddc420cba3d"
+    // }
 
     const properties = {
-      "Name": {
-        "title": [
-            {
-              "text": {
-                "content": "POST Data"
-              }
-            }
-        ]
+      Name: {
+        type: "title",
+        title: [{ text: { content: "POST Data" } }]
       },
       Tags: {
         type: "rich_text",
-        rich_text: [{ "text": { "content": "actions" } }]
+        rich_text: [{ text: { content: "actions" } }]
       },
       Price: {
         type: "number",
@@ -37,9 +32,10 @@ async function run() {
       },
       Date: {
         type: "date",
-        date: { "start": "2021-05-11" }
+        date: { start: "2021-05-11" }
       },
       Status: {
+        type: "select",
         select: {
           name: "complete"
         }
@@ -47,7 +43,10 @@ async function run() {
     }
 
     const newPage = await notion.pages.create({
-      parent: parent,
+      parent: {
+        type: "database_id",
+        database_id: '48f8fee9cd794180bc2fec0398253067',
+      },
       propaties: properties
     })
   } catch (error) {
