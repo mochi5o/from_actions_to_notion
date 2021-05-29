@@ -17,9 +17,14 @@ async function run() {
         };
 
     const properties = {
-      Name: {
-        type: "title",
-        title: [{ "text": { "content": "POST Data" } }]
+      "Name": {
+        "title": [
+            {
+              "text": {
+                "content": "POST Data"
+              }
+            }
+        ]
       },
       Tags: {
         type: "rich_text",
