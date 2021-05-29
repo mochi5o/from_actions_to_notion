@@ -47,18 +47,29 @@ async function run() {
     }
     console.log(val);
 
-    // const newPage = await notion.pages.create({
-    //   parent: {
-    //     database_id: '48f8fee9cd794180bc2fec0398253067',
-    //   },
-    //   properties: properties
-    // })
-    // console.log(newPage);
+    const newPage = await notion.pages.create({
+      parent: {
+        database_id: '48f8fee9cd794180bc2fec0398253067',
+      },
+      properties: {
+        Name: {
+          type: 'title',
+          title: [{ text: { content: issueTitle } }]
+        },
+        Url: {
+          type: 'rich_text',
+          rich_text: [{ text: { content: url } }]
+        },
+        Status: {
+          select: {
+            name: "not started"
+          }
+        }
+      }
+    })
+    console.log(newPage);
 
-    const parentPage = await notion.pages.retrieve({
-      page_id: parent,
-    });
-    console.dir(parentPage, { depth: null });
+
   } catch (error) {
     console.error(error)
   }
