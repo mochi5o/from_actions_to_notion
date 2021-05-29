@@ -44,7 +44,7 @@ async function run() {
     const val = {parent: {
         page_id: '48f8fee9cd794180bc2fec0398253067',
       },
-      propaties: properties
+      properties: properties
     }
     console.log(val);
 
@@ -53,7 +53,7 @@ async function run() {
         database_id: '48f8fee9cd794180bc2fec0398253067',
         page_id: '48f8fee9cd794180bc2fec0398253067'
       },
-      propaties: properties
+      properties: properties
     })
     console.log(newPage);
   } catch (error) {
