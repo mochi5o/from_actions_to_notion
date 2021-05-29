@@ -1,21 +1,17 @@
 name: 'issue post'
 inputs:
-  url:
-    description: 'issues url'
-    required: true
-    default: 'https://github.com/mochi5o/writing-javascript-actions'
   repo-token:
-    description: 'repo-token'
+    description: 'repo token'
     required: true
   issue-title:
     description: 'event issue title'
     required: true
-  integrations-token:
-    description: 'integrations'
+  url:
+    description: 'issues url'
     required: true
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  integrations-token:
+    description: 'integrations token'
+    required: true
 runs:
   using: 'node12'
   main: 'dist/index.js'
