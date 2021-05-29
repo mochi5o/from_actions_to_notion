@@ -3,7 +3,7 @@ inputs:
   url:
     description: 'issues url'
     required: true
-    default: ${{ github.event.repo.url }}
+    default: 'https://github.com/mochi5o/writing-javascript-actions'
   repo-token:
     description: 'repo-token'
     required: true
