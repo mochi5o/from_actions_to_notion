@@ -4,7 +4,13 @@ const { Client, LogLevel } = require('@notionhq/client')
 
 async function run() {
   try {
-
+    const notionToken = core.getInput('integrations-token');
+    const notion = new Client({
+      auth: notionToken,
+      logLevel: LogLevel.DEBUG,
+    });
+    const issueTitle = core.getInput('issue-title');
+    const url = core.getInput('url');
     const parentData = {
       database_id: 'dfc2cdc260ae476c8f2f5d4065f9a94a'
     }
@@ -25,13 +31,6 @@ async function run() {
       }
     }
 
-    const notionToken = core.getInput('integrations-token');
-    const notion = new Client({
-      auth: notionToken,
-      logLevel: LogLevel.DEBUG,
-    });
-    const issueTitle = core.getInput('issue-title');
-    const url = core.getInput('url');
     const newPage = await notion.pages.create({
       parent: parentData,
       properties: prop
