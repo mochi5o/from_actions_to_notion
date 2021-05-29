@@ -1213,13 +1213,13 @@ async function run() {
     }
     console.log(val);
 
-    const newPage = await notion.pages.create({
-      parent: {
-        database_id: '48f8fee9cd794180bc2fec0398253067',
-      },
-      properties: properties
-    })
-    console.log(newPage);
+    // const newPage = await notion.pages.create({
+    //   parent: {
+    //     database_id: '48f8fee9cd794180bc2fec0398253067',
+    //   },
+    //   properties: properties
+    // })
+    // console.log(newPage);
 
     const parentPage = await notion.pages.retrieve({
       page_id: parent,
