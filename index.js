@@ -11,11 +11,11 @@ async function run() {
     });
     const issueTitle = core.getInput('issue-title');
     const url = core.getInput('url');
-    const parentData = {
+    const parent = {
       database_id: 'dfc2cdc260ae476c8f2f5d4065f9a94a'
     }
 
-    const prop = {
+    const properties = {
       Name: {
         type: 'title',
         title: [{ text: { content: issueTitle } }]
@@ -32,8 +32,8 @@ async function run() {
     }
 
     const newPage = await notion.pages.create({
-      parent: parentData,
-      properties: prop
+      parent: parent,
+      properties: properties
     })
     console.log(newPage);
   } catch (error) {
