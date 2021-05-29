@@ -4,10 +4,10 @@ inputs:
     description: 'repo token'
     required: true
   issue-title:
-    description: 'event issue title'
+    description: 'issue title'
     required: true
   url:
-    description: 'issues url'
+    description: 'issue url'
     required: true
   integrations-token:
     description: 'integrations token'
