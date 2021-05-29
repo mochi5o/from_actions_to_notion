@@ -40,12 +40,12 @@ async function run() {
     //     }
     //   }
     // }
-    const val = {parent: {
-        page_id: '48f8fee9cd794180bc2fec0398253067',
-      },
-      properties: properties
-    }
-    console.log(val);
+    // const val = {parent: {
+    //     page_id: '48f8fee9cd794180bc2fec0398253067',
+    //   },
+    //   properties: properties
+    // }
+    // console.log(val);
 
     const newPage = await notion.pages.create({
       parent: {

@@ -1179,7 +1179,7 @@ async function run() {
   try {
 
     // const parent = {
-    //   database_id: '2f26ee68-df30-4251-aad4-8ddc420cba3d'
+    //   database_id: ''
     // }
 
     // const properties = {
@@ -1206,12 +1206,12 @@ async function run() {
     //     }
     //   }
     // }
-    const val = {parent: {
-        page_id: '48f8fee9cd794180bc2fec0398253067',
-      },
-      properties: properties
-    }
-    console.log(val);
+    // const val = {parent: {
+    //     page_id: '48f8fee9cd794180bc2fec0398253067',
+    //   },
+    //   properties: properties
+    // }
+    // console.log(val);
 
     const newPage = await notion.pages.create({
       parent: {
