@@ -12,10 +12,9 @@ const url = core.getInput('url');
 async function run() {
   try {
 
-    // const parent = {
-    //   'type': 'database_id',
-    //   'database_id': '2f26ee68-df30-4251-aad4-8ddc420cba3d'
-    // }
+    const parent = {
+      database_id: '2f26ee68-df30-4251-aad4-8ddc420cba3d'
+    }
 
     const properties = {
       Name: {
@@ -51,11 +50,15 @@ async function run() {
     const newPage = await notion.pages.create({
       parent: {
         database_id: '48f8fee9cd794180bc2fec0398253067',
-        page_id: ''
       },
       properties: properties
     })
     console.log(newPage);
+
+    const parentPage = await notion.pages.retrieve({
+      page_id: parent,
+    });
+    console.dir(parentPage, { depth: null });
   } catch (error) {
     console.error(error)
   }
