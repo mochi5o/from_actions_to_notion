@@ -1216,8 +1216,8 @@ async function run() {
 
     const newPage = await notion.pages.create({
       parent: {
-        type: 'database_id',
-        page_id: '48f8fee9cd794180bc2fec0398253067',
+        database_id: '48f8fee9cd794180bc2fec0398253067',
+        page_id: '48f8fee9cd794180bc2fec0398253067'
       },
       propaties: properties
     })
