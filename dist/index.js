@@ -1188,7 +1188,11 @@ async function run() {
       },
       Url: {
         type: 'rich_text',
-        rich_text: [{ text: { content: url } }]
+        rich_text: [{ text: {
+          content: url,
+          link: url
+          }
+        }]
       },
       Status: {
         select: {
