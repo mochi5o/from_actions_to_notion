@@ -1177,11 +1177,12 @@ async function run() {
     });
     const issueTitle = core.getInput('issue-title');
     const url = core.getInput('url');
+    const dbId = core.getInput('db-id')
     const parent = {
-      database_id: core.getInput('db-id')
+      database_id: dbId
     }
     const properties = {
-      Name: {
+      Title: {
         type: 'title',
         title: [{ text: { content: issueTitle } }]
       },
