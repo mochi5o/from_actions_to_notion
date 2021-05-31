@@ -21,3 +21,4 @@ jobs:
           issue-title: ${{ github.event.issue.title }}
           url: ${{ github.event.issue.url }}
           integrations-token: ${{ secrets.NOTION_TOKEN }}
+          db-id: ${{ secrets.DB_ID }}

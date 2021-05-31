@@ -12,9 +12,8 @@ async function run() {
     const issueTitle = core.getInput('issue-title');
     const url = core.getInput('url');
     const parent = {
-      database_id: 'dfc2cdc260ae476c8f2f5d4065f9a94a'
+      database_id: core.getInput('db-id')
     }
-
     const properties = {
       Name: {
         type: 'title',
