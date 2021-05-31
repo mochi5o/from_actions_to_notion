@@ -1183,16 +1183,10 @@ async function run() {
     }
     const properties = {
       Title: {
-        type: 'title',
         title: [{ text: { content: issueTitle } }]
       },
       Url: {
-        type: 'rich_text',
-        rich_text: [{ text: {
-          content: url,
-          link: url
-          }
-        }]
+        url: url
       },
       Status: {
         select: {
