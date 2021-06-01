@@ -16,7 +16,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Install npm
+      - name: Install
         run: npm install
+      - name: Prettier, ESLint
+        run: npm run lint
       - name: Jest
         run: npm run test
