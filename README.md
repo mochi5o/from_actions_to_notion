@@ -1,7 +1,7 @@
 # ActionsからNotionに投稿するテスト
 
 [![labeled actions](https://github.com/mochi5o/from_actions_to_notion/actions/workflows/main.yml/badge.svg)](https://github.com/mochi5o/from_actions_to_notion/actions/workflows/main.yml)
-[![Node.js CI](https://github.com/mochi5o/from_actions_to_notion/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/mochi5o/from_actions_to_notion/actions/workflows/test.yml)
+[![CI](https://github.com/mochi5o/from_actions_to_notion/actions/workflows/ci.yml/badge.svg)](https://github.com/mochi5o/from_actions_to_notion/actions/workflows/ci.yml)
 
 ## 準備
 
