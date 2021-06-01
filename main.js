@@ -1,17 +1,20 @@
 const core = require('@actions/core');
 const { Client, LogLevel } = require('@notionhq/client');
 
-const notionToken = core.getInput('integrations-token');
-const issueTitle = core.getInput('issue-title');
-const url = core.getInput('url');
-const dbId = core.getInput('db-id');
-const notion = new Client({
-  auth: notionToken,
-  logLevel: LogLevel.DEBUG,
-});
-
 const main = async () => {
   try {
+    const notionToken = core.getInput('integrations-token');
+    const issueTitle = core.getInput('issue-title');
+    const url = core.getInput('url');
+    const dbId = core.getInput('db-id');
+
+    if (!notionToken || !issueTitle || !url || !dbId) {
+      throw new Error('Missing environment var');
+    }
+    const notion = new Client({
+      auth: notionToken,
+      logLevel: LogLevel.DEBUG,
+    });
     const parent = {
       database_id: dbId,
     };
@@ -28,11 +31,11 @@ const main = async () => {
         },
       },
     };
-    const newPage = await notion.pages.create({
+    const response = await notion.pages.create({
       parent: parent,
       properties: properties,
     });
-    core.setOutput('new-page', newPage);
+    core.setOutput('response', response);
   } catch (error) {
     core.setFailed(error.message);
   }
