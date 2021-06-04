@@ -9,7 +9,7 @@ jobs:
   labeled-actions:
     runs-on: ubuntu-latest
     if: |
-      (github.event.label.name == '特別なラベル') || contains(github.event.issue.labels.*.name, '特別なラベル')
+      contains(github.event.label.name, '特別なラベル') || contains(github.event.issue.labels.*.name, '特別なラベル')
     steps:
       - name: Checkout
         uses: actions/checkout@v2
