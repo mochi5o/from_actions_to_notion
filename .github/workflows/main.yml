@@ -3,7 +3,7 @@ name: labeled actions
 on:
   issues:
     types:
-      ['labeled', 'reopend']
+      ['labeled', 'reopened']
 
 jobs:
   labeled-actions:
