@@ -4106,43 +4106,47 @@ module.exports = require("net");
 /***/ (function(module, __unusedexports, __webpack_require__) {
 
 const core = __webpack_require__(670);
-const { Client, LogLevel } = __webpack_require__(517)
+const { Client, LogLevel } = __webpack_require__(517);
 
 const main = async () => {
   try {
     const notionToken = core.getInput('integrations-token');
+    const issueTitle = core.getInput('issue-title');
+    const url = core.getInput('url');
+    const dbId = core.getInput('db-id');
+
+    if (!notionToken || !issueTitle || !url || !dbId) {
+      throw new Error('Missing environment var');
+    }
     const notion = new Client({
       auth: notionToken,
       logLevel: LogLevel.DEBUG,
     });
-    const issueTitle = core.getInput('issue-title');
-    const url = core.getInput('url');
-    const dbId = core.getInput('db-id')
     const parent = {
-      database_id: dbId
-    }
+      database_id: dbId,
+    };
     const properties = {
       Title: {
-        title: [{ text: { content: issueTitle } }]
+        title: [{ text: { content: issueTitle } }],
       },
-      Url: {
-        url: url
+      アドレス: {
+        url: url,
       },
       Status: {
         select: {
-          name: "not started"
-        }
-      }
-    }
-    const newPage = await notion.pages.create({
+          name: 'not started',
+        },
+      },
+    };
+    const response = await notion.pages.create({
       parent: parent,
-      properties: properties
-    })
-    console.log(newPage);
+      properties: properties,
+    });
+    core.setOutput('response', response);
   } catch (error) {
-    console.error(error);
+    core.setFailed(error.message);
   }
-}
+};
 
 module.exports = main;
 
