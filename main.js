@@ -22,7 +22,7 @@ const main = async () => {
       Title: {
         title: [{ text: { content: issueTitle } }],
       },
-      Url: {
+      アドレス: {
         url: url,
       },
       Status: {
