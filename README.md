@@ -10,3 +10,9 @@ secretに以下を登録
   - Githubのアクセストークン
 - NOTION_TOKEN
   - Notion側でIntegrationsを設定した時のアクセスキー
+
+Actions側
+- 検知したいラベルを登録
+
+## 使い方
+- このActionsを設定したRepoでissueに設定したラベルをつけると、NotionにissueタイトルとissueのURLが投稿される
